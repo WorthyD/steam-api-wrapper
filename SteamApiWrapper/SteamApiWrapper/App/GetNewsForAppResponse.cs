@@ -5,10 +5,14 @@ using System.Text;
 
 namespace SteamApiWrapper.App
 {
-    public class GetNewsForAppResponse : Response<Models.AppNews>
+    public class GetNewsForAppResponse : Response<GetNewsForAppRequest>
     {
         public Models.AppNews AppNews { get; set; }
-        public GetNewsForAppResponse
+        public GetNewsForAppResponse()
+        {
+        }
+
+        public GetNewsForAppResponse(GetNewsForAppRequest request) : base(request) { }
     }
 }
 

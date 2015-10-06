@@ -41,7 +41,9 @@
   <ItemGroup>
     <Compile Include="App\GetNewsForAppRequest.cs" />
     <Compile Include="App\GetNewsForAppResponse.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Helpers\WebRequestHelper.cs" />
+    <Compile Include="IRequest.cs" />
     <Compile Include="Models\AppNews.cs" />
     <Compile Include="Request.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
