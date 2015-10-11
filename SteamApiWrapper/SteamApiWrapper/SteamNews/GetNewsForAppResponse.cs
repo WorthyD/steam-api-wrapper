@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SteamApiWrapper.App
+namespace SteamApiWrapper.SteamNews
 {
     public class GetNewsForAppResponse : Response<GetNewsForAppRequest>
     {

@@ -39,8 +39,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App\GetNewsForAppRequest.cs" />
-    <Compile Include="App\GetNewsForAppResponse.cs" />
+    <Compile Include="Helpers\SteamUrlBuilder.cs" />
+    <Compile Include="SteamNews\GetNewsForAppRequest.cs" />
+    <Compile Include="SteamNews\GetNewsForAppResponse.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Helpers\WebRequestHelper.cs" />
     <Compile Include="IRequest.cs" />
