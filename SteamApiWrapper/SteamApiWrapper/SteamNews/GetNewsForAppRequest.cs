@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using Newtonsoft.Json;
 
 namespace SteamApiWrapper.SteamNews
 {
@@ -37,7 +38,12 @@ namespace SteamApiWrapper.SteamNews
             string fullRequestUrl = string.Format("{0}{1}", requestUrl, this.BuildRequestQuery());
             string responseString = await Helpers.WebRequestHelper.ExecuteGetRequest(fullRequestUrl);
 
-            return null;
+            var news =   JsonConvert.DeserializeObject<Models.AppNews>(responseString);
+
+            var response = new GetNewsForAppResponse();
+            response.AppNews = news;
+
+            return response;
 
         }
 
