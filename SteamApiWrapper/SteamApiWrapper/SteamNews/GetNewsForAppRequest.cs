@@ -38,10 +38,10 @@ namespace SteamApiWrapper.SteamNews
             string fullRequestUrl = string.Format("{0}{1}", requestUrl, this.BuildRequestQuery());
             string responseString = await Helpers.WebRequestHelper.ExecuteGetRequest(fullRequestUrl);
 
-            var news =   JsonConvert.DeserializeObject<Models.AppNews>(responseString);
+            var news =   JsonConvert.DeserializeObject<Models.ApplicationNews>(responseString);
 
             var response = new GetNewsForAppResponse();
-            response.AppNews = news;
+            response.AppNews = news.appnews;
 
             return response;
 
@@ -63,7 +63,7 @@ namespace SteamApiWrapper.SteamNews
                 query.Add(string.Format("maxcount={0}", this.MaxLength));
             }
 
-            return string.Format("?", String.Join("&", query.ToArray()));
+            return string.Format("?{0}", String.Join("&", query.ToArray()));
         }
 
     }

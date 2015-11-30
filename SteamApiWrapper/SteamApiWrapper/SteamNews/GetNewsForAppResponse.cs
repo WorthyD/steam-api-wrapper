@@ -7,7 +7,7 @@ namespace SteamApiWrapper.SteamNews
 {
     public class GetNewsForAppResponse : Response<GetNewsForAppRequest>
     {
-        public Models.AppNews AppNews { get; set; }
+        public Models.ApplicationNews.AppNews AppNews { get; set; }
         public GetNewsForAppResponse()
         {
         }

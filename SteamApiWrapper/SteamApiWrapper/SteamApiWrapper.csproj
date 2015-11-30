@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\SteamUrlBuilder.cs" />
+    <Compile Include="Models\GlobalAchievementPercentages.cs" />
     <Compile Include="SteamNews\GetNewsForAppRequest.cs" />
     <Compile Include="SteamNews\GetNewsForAppResponse.cs" />
     <Compile Include="Constants.cs" />
@@ -50,6 +51,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Response.cs" />
     <Compile Include="ServiceConfiguration.cs" />
+    <Compile Include="SteamUserStats\GetGlobalAchievementPercentagesForAppRequest.cs" />
+    <Compile Include="SteamUserStats\GetGlobalAchievementPercentagesForAppResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">

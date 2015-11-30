@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Helpers\SteamUrlBuilder.cs" />
     <Compile Include="SteamNews\GetNewsForAppTests.cs" />
+    <Compile Include="SteamUserStats\GetGlobalAchievementPercentagesForAppTests.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

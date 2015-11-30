@@ -9,6 +9,12 @@ namespace SteamApiWrapper
     {
         public string ApiKey { get; set; }
 
+        public Helpers.SteamUrlBuilder urlBuilder { get; set; }
+        public Request()
+        {
+            urlBuilder = new Helpers.SteamUrlBuilder();
+        }
+
         internal virtual string GetServiceUrl(ServiceConfiguration configuration)
         {
             throw new NotSupportedException();
