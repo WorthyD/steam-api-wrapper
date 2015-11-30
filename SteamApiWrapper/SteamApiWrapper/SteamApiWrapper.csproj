@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Helpers\SteamUrlBuilder.cs" />
     <Compile Include="Models\GlobalAchievementPercentages.cs" />
+    <Compile Include="ResponseStatus.cs" />
     <Compile Include="SteamNews\GetNewsForAppRequest.cs" />
     <Compile Include="SteamNews\GetNewsForAppResponse.cs" />
     <Compile Include="Constants.cs" />

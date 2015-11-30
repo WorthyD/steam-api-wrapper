@@ -13,9 +13,14 @@ namespace SteamApiWrapper.Helpers
         {
 
             HttpClient client = new HttpClient();
-            string result = await client.GetStringAsync(url);
+            //string result = await client.GetStringAsync(url);
+            var result = await client.GetAsync(url);
 
-            return result;
+            string statusCode = result.StatusCode.ToString();
+
+            
+
+            return "";
         }
 
     }

@@ -35,13 +35,19 @@ namespace SteamApiWrapper.SteamNews
         public async Task<GetNewsForAppResponse> GetResponse()
         {
             string requestUrl = urlBuilder.BuildRequestUrl(Helpers.SteamUrlBuilder.Interface.ISteamNews, Helpers.SteamUrlBuilder.Version.v2, "GetNewsForApp");
-            string fullRequestUrl = string.Format("{0}{1}", requestUrl, this.BuildRequestQuery());
-            string responseString = await Helpers.WebRequestHelper.ExecuteGetRequest(fullRequestUrl);
 
-            var news =   JsonConvert.DeserializeObject<Models.ApplicationNews>(responseString);
+            //string fullRequestUrl = string.Format("{0}{1}", requestUrl, this.BuildRequestQuery());
+            //string responseString = await Helpers.WebRequestHelper.ExecuteGetRequest(fullRequestUrl);
+
+            //var news =   JsonConvert.DeserializeObject<Models.ApplicationNews>(responseString);
+
+            //var response = new GetNewsForAppResponse();
+            //response.AppNews = news.appnews;
 
             var response = new GetNewsForAppResponse();
-            response.AppNews = news.appnews;
+
+            //var objec = await response.ExecuteRequest<Models.ApplicationNews>(null, requestUrl);
+            response = await base.ExecuteRequest(response as Response, null, requestUrl) as GetNewsForAppResponse;
 
             return response;
 
