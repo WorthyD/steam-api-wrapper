@@ -44,9 +44,9 @@ namespace SteamApiWrapper
             StatusMessage = statusMessage;
         }
 
-        public abstract void Convert();
-      
 
+
+        public abstract void Convert();
 
     }
 }

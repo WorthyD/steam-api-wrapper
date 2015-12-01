@@ -12,7 +12,15 @@ namespace SteamApiWrapper
     {
         public string ApiKey { get; set; }
 
-        public Helpers.SteamUrlBuilder urlBuilder { get; set; }
+
+
+        public abstract Helpers.SteamUrlBuilder.Interface UrlInterface { get; }
+        public abstract Helpers.SteamUrlBuilder.Version ApiVersion { get; }
+        public abstract string UrlPath { get; }
+
+
+        private Helpers.SteamUrlBuilder urlBuilder { get; set; }
+
         public Request()
         {
             urlBuilder = new Helpers.SteamUrlBuilder();
@@ -25,10 +33,12 @@ namespace SteamApiWrapper
 
 
 
-        public async Task<SteamApiWrapper.Response> ExecuteRequest(SteamApiWrapper.Response responseObject, object parameters, string requestBaseUrl)
-        {
-            string fullRequestUrl = string.Format("{0}{1}", requestBaseUrl, GetQueryString(parameters));
 
+
+        public async Task<SteamApiWrapper.Response> ExecuteRequest(SteamApiWrapper.Response responseObject, object parameters)
+        {
+            string requestBaseUrl = urlBuilder.BuildRequestUrl(this.UrlInterface, this.ApiVersion, this.UrlPath);
+            string fullRequestUrl = string.Format("{0}?{1}", requestBaseUrl, GetQueryString());
 
 
             HttpClient client = new HttpClient();
@@ -37,19 +47,20 @@ namespace SteamApiWrapper
 
             responseObject.RawResponse = await result.Content.ReadAsStringAsync();
             responseObject.Status = result.StatusCode;
-
+            responseObject.Convert();
 
             return responseObject;
         }
 
-        public string GetQueryString(object obj)
+        public string GetQueryString()
         {
-            var properties = from p in obj.GetType().GetProperties()
-                             where p.GetValue(obj, null) != null
-                             select p.Name + "=" + p.GetValue(obj, null).ToString();
+            var properties = from p in this.GetType().GetProperties()
+                             where p.GetValue(this, null) != null && Attribute.IsDefined(p, typeof(QueryParameter))
+                             select p.Name + "=" + p.GetValue(this, null).ToString();
 
             return String.Join("&", properties.ToArray());
         }
+
 
 
     }
@@ -68,4 +79,12 @@ namespace SteamApiWrapper
     public abstract class ListRequest<T> : ListRequest
     {
     }
+
+
+    public class QueryParameter : System.Attribute
+    {
+
+    }
+
+
 }

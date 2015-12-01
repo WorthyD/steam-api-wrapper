@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using SteamApiWrapper.Helpers;
 
 namespace SteamApiWrapper.SteamUserStats
 {
@@ -12,6 +13,30 @@ namespace SteamApiWrapper.SteamUserStats
         public const string URL_KEY = "GetGlobalAchievementPercentagesForApp";
         public int GameId { get; set; }
 
+        public override SteamUrlBuilder.Interface UrlInterface
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public override SteamUrlBuilder.Version ApiVersion
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public override string UrlPath
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public GetGlobalAchievementPercentagesForAppRequest() : base()
         {
         }
@@ -19,8 +44,8 @@ namespace SteamApiWrapper.SteamUserStats
         public async Task<GetGlobalAchievementPercentagesForAppResponse> GetResponse()
         {
 
-            string requestUrl = urlBuilder.BuildRequestUrl(Helpers.SteamUrlBuilder.Interface.ISteamUserStats, 
-                Helpers.SteamUrlBuilder.Version.v2, URL_KEY);
+            string requestUrl = ""; //urlBuilder.BuildRequestUrl(Helpers.SteamUrlBuilder.Interface.ISteamUserStats, 
+                //Helpers.SteamUrlBuilder.Version.v2, URL_KEY);
 
             string fullRequestUrl = string.Format("{0}{1}", requestUrl, this.BuildRequestQuery());
             string responseString = await Helpers.WebRequestHelper.ExecuteGetRequest(fullRequestUrl);

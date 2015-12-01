@@ -18,7 +18,8 @@ namespace SteamApiWrapper.Tests.SteamNews
 
             var response = await r.GetResponse();
 
-            Assert.IsTrue(response.AppNews.newsitems.Count > 0);
+            Assert.IsTrue(response.AppNews.NewsItems.Count > 0);
         }
+        //TODO add failure tests
     }
 }

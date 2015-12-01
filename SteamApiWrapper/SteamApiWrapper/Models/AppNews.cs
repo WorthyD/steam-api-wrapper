@@ -11,7 +11,7 @@ namespace SteamApiWrapper.Models
         public class AppNews
         {
             public int appid { get; set; }
-            public List<Newsitem> newsitems { get; set; }
+            public List<Newsitem> NewsItems { get; set; }
 
             public class Newsitem
             {
