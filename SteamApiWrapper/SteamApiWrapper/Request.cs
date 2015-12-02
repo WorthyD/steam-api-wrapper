@@ -46,7 +46,8 @@ namespace SteamApiWrapper
             var result = await client.GetAsync(fullRequestUrl);
 
             responseObject.RawResponse = await result.Content.ReadAsStringAsync();
-            responseObject.Status = result.StatusCode;
+            responseObject.Status = ResponseStatus.Convert(result.StatusCode.ToString());
+            responseObject.StatusMessage = responseObject.Status.ToString();
             responseObject.Convert();
 
             return responseObject;

@@ -15,7 +15,7 @@ namespace SteamApiWrapper
         //public T Request { get; set; }
         public string StatusMessage { get; set; }
         public string RawResponse { get; set; }
-        public HttpStatusCode Status { get; set; }
+        public ResponseStatus.ResponseStatusCode Status { get; set; }
 
 
 
@@ -39,8 +39,7 @@ namespace SteamApiWrapper
         //}
         public Response(HttpStatusCode status, string statusMessage)
         {
-            //Request = new T();
-            Status = status;
+            Status = ResponseStatus.Convert(status.ToString());
             StatusMessage = statusMessage;
         }
 

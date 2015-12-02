@@ -19,15 +19,14 @@ namespace SteamApiWrapper.SteamNews
             {
                 AppNews = app.appnews;
             }
+            else
+            {
+                this.Status = ResponseStatus.ResponseStatusCode.NotFound;
+                this.StatusMessage = "App not found";
+            }
         }
 
         public GetNewsForAppResponse(GetNewsForAppRequest request) { }
     }
 }
 
-//public class PlayerGamesResponse : Response<PlayerGamesRequest>
-//{
-//    public Models.gamesList GamesList { get; set; }
-//    public PlayerGamesResponse() { }
-//    public PlayerGamesResponse(PlayerGamesRequest request) : base(request) { }
-//}j

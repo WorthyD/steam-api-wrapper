@@ -9,11 +9,24 @@ namespace SteamApiWrapper
     {
         public enum ResponseStatusCode
         {
-            Ok = 100,
-            InvalidRequest = 201,
-            LimitExceded = 202,
-            Unauthorized = 300,
-            AuthFailure = 301,
+            OK = 200,
+            Moved = 301,
+            MovedPermanently = 301,
+            Found = 302,
+            Redirect = 302,
+            NotModified = 304,
+            BadRequest = 400,
+            Unauthorized = 401,
+            Forbidden = 403,
+            NotFound = 404,
+            MethodNotAllowed = 405,
+            ExpectationFailed = 417,
+            InternalServerError = 500,
+            NotImplemented = 501,
+            BadGateway = 502,
+            ServiceUnavailable = 503,
+            GatewayTimeout = 504,
+            HttpVersionNotSupported = 505
         }
         public static ResponseStatusCode Convert(string status)
         {

@@ -10,62 +10,36 @@ namespace SteamApiWrapper.SteamUserStats
 {
     public class GetGlobalAchievementPercentagesForAppRequest : Request
     {
-        public const string URL_KEY = "GetGlobalAchievementPercentagesForApp";
+        [QueryParameter]
         public int GameId { get; set; }
 
         public override SteamUrlBuilder.Interface UrlInterface
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get { return SteamUrlBuilder.Interface.ISteamUserStats; }
         }
 
         public override SteamUrlBuilder.Version ApiVersion
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get { return SteamUrlBuilder.Version.v2; }
         }
 
         public override string UrlPath
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public GetGlobalAchievementPercentagesForAppRequest() : base()
-        {
+            get { return "GetGlobalAchievementPercentagesForApp"; }
         }
 
         public async Task<GetGlobalAchievementPercentagesForAppResponse> GetResponse()
         {
 
-            string requestUrl = ""; //urlBuilder.BuildRequestUrl(Helpers.SteamUrlBuilder.Interface.ISteamUserStats, 
-                //Helpers.SteamUrlBuilder.Version.v2, URL_KEY);
-
-            string fullRequestUrl = string.Format("{0}{1}", requestUrl, this.BuildRequestQuery());
-            string responseString = await Helpers.WebRequestHelper.ExecuteGetRequest(fullRequestUrl);
-
-            var globalAchievements =   JsonConvert.DeserializeObject<Models.GlobalAchievementPercentages>(responseString);
-
             var response = new GetGlobalAchievementPercentagesForAppResponse();
-            response.GlobalAchievementPercentages = globalAchievements;
+            response = await base.ExecuteRequest(response as Response, this) as GetGlobalAchievementPercentagesForAppResponse;
+
 
             return response;
 
 
         }
-        private string BuildRequestQuery()
-        {
-            List<string> query = new List<string>();
-            query.Add(string.Format("gameid={0}", this.GameId));
-
-            return string.Format("?{0}", String.Join("&", query.ToArray()));
-        }
+      
 
 
     }
