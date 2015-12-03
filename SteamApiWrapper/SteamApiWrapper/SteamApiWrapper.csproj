@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Helpers\SteamUrlBuilder.cs" />
     <Compile Include="Models\GlobalAchievementPercentages.cs" />
+    <Compile Include="Models\PlayerSummaries.cs" />
     <Compile Include="ResponseStatus.cs" />
     <Compile Include="SteamNews\GetNewsForAppRequest.cs" />
     <Compile Include="SteamNews\GetNewsForAppResponse.cs" />
@@ -54,6 +55,10 @@
     <Compile Include="ServiceConfiguration.cs" />
     <Compile Include="SteamUserStats\GetGlobalAchievementPercentagesForAppRequest.cs" />
     <Compile Include="SteamUserStats\GetGlobalAchievementPercentagesForAppResponse.cs" />
+    <Compile Include="SteamUserStats\GetGlobalStatsForGameRequest.cs" />
+    <Compile Include="SteamUserStats\GetGlobalStatsForGameResponse.cs" />
+    <Compile Include="SteamUser\GetPlayerSummariesRequest.cs" />
+    <Compile Include="SteamUser\GetPlayerSummariesResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -93,6 +98,7 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">

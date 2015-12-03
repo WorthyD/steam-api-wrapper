@@ -19,6 +19,7 @@ namespace SteamApiWrapper
         public abstract string UrlPath { get; }
 
 
+
         private Helpers.SteamUrlBuilder urlBuilder { get; set; }
 
         public Request()
@@ -52,12 +53,17 @@ namespace SteamApiWrapper
 
             return responseObject;
         }
-
         public string GetQueryString()
         {
-            var properties = from p in this.GetType().GetProperties()
+            var properties = (from p in this.GetType().GetProperties()
                              where p.GetValue(this, null) != null && Attribute.IsDefined(p, typeof(QueryParameter))
-                             select p.Name + "=" + p.GetValue(this, null).ToString();
+                             select p.Name + "=" + p.GetValue(this, null).ToString()).ToList();
+           
+
+            if (Attribute.IsDefined(this.GetType(), typeof(APIKeyRequired))){
+                properties.Add("key=" + this.ApiKey);
+            }
+          
 
             return String.Join("&", properties.ToArray());
         }
@@ -84,8 +90,11 @@ namespace SteamApiWrapper
 
     public class QueryParameter : System.Attribute
     {
-
     }
+    public class APIKeyRequired : System.Attribute
+    {
+    }
+
 
 
 }

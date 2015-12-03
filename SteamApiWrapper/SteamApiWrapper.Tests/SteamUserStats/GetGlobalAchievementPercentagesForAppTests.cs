@@ -7,15 +7,31 @@ namespace SteamApiWrapper.Tests.SteamUserStats
     [TestClass]
     public class GetGlobalAchievementPercentagesForAppTests
     {
+
+        public  SteamApiWrapper.SteamUserStats.GetGlobalAchievementPercentagesForAppRequest r;
+        public GetGlobalAchievementPercentagesForAppTests()
+        {
+            r = new SteamApiWrapper.SteamUserStats.GetGlobalAchievementPercentagesForAppRequest();
+        }
+
+
         [TestMethod]
         public async Task GetAchievementPercentages()
         {
-            var r = new SteamApiWrapper.SteamUserStats.GetGlobalAchievementPercentagesForAppRequest();
 
             r.GameId = 440;
-
             var response = await r.GetResponse();
-            Assert.IsTrue(response.GlobalAchievementPercentages.achievementpercentages.achievements.Count > 0);
+            Assert.IsTrue(response.Status == ResponseStatus.ResponseStatusCode.OK);
+            Assert.IsTrue(response.GlobalAchievementPercentages.achievements.Count > 0);
         }
+
+        [TestMethod]
+        public async Task GetAchievementPercentagesNoStats()
+        {
+            r.GameId = 0;
+            var response = await r.GetResponse();
+            Assert.IsTrue(response.Status == ResponseStatus.ResponseStatusCode.NotFound);
+        }
+
     }
 }
