@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace SteamApiWrapper.Tests.SteamUserStats
 {
     [TestClass]
-    public class GetGlobalAchievementPercentagesForAppTests
+    public class GetGlobalAchievementPercentagesForAppTests 
     {
 
         public  SteamApiWrapper.SteamUserStats.GetGlobalAchievementPercentagesForAppRequest r;
