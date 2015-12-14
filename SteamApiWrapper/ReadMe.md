@@ -1,8 +1,8 @@
 #Endpoints Need
-GetNewsForApp
-GetGlobalAchievementPercentagesForApp
+~~GetNewsForApp
+~~GetGlobalAchievementPercentagesForApp
 GetGlobalStatsForGame
-GetPlayerSummaries
+~~GetPlayerSummaries
 GetFriendList
 GetPlayerAchievements
 GetUserStatsForGame
