@@ -17,7 +17,7 @@ namespace SteamApiWrapper.SteamUser
         }
 
         [QueryParameter]
-        private string SteamIds
+        public string SteamIds
         {
             get
             {

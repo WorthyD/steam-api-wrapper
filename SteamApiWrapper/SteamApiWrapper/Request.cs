@@ -49,7 +49,10 @@ namespace SteamApiWrapper
             responseObject.RawResponse = await result.Content.ReadAsStringAsync();
             responseObject.Status = ResponseStatus.Convert(result.StatusCode.ToString());
             responseObject.StatusMessage = responseObject.Status.ToString();
-            responseObject.Convert();
+            if (result.IsSuccessStatusCode)
+            {
+                responseObject.Convert();
+            }
 
             return responseObject;
         }
@@ -58,13 +61,14 @@ namespace SteamApiWrapper
             var properties = (from p in this.GetType().GetProperties()
                              where p.GetValue(this, null) != null && Attribute.IsDefined(p, typeof(QueryParameter))
                              select p.Name + "=" + p.GetValue(this, null).ToString()).ToList();
-           
+
 
             if (Attribute.IsDefined(this.GetType(), typeof(APIKeyRequired))){
                 properties.Add("key=" + this.ApiKey);
             }
           
 
+            var p2 = this.GetType().GetProperties();
             return String.Join("&", properties.ToArray());
         }
 

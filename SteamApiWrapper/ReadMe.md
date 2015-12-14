@@ -1,0 +1,13 @@
+#Endpoints Need
+GetNewsForApp
+GetGlobalAchievementPercentagesForApp
+GetGlobalStatsForGame
+GetPlayerSummaries
+GetFriendList
+GetPlayerAchievements
+GetUserStatsForGame
+GetOwnedGames
+GetRecentlyPlayedGames
+IsPlayingSharedGame
+GetSchemaForGame
+GetPlayerBans

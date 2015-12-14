@@ -28,12 +28,23 @@ namespace SteamApiWrapper.Tests.SteamNews
         }
 
         [TestMethod]
-        public async Task GetNewsAppTestCount()
+        public async Task GetProfilesTest()
         {
+            req.ProfileIds.Add(76561198023113346);
             var response = await req.GetResponse();
+            Assert.IsTrue(response.Status == ResponseStatus.ResponseStatusCode.OK);
+            Assert.IsTrue(response.Players.Length == 2);
+        }
+
+        [TestMethod]
+        public async Task GetProfileNoResult()
+        {
+            req.ProfileIds = new List<long>();
+            var response = await req.GetResponse();
+            Assert.IsTrue(response.Status == ResponseStatus.ResponseStatusCode.OK);
         }
 
 
-    
+
     }
 }
