@@ -62,6 +62,7 @@
     </Compile>
     <Compile Include="SteamNews\GetNewsForAppTests.cs" />
     <Compile Include="SteamUserStats\GetGlobalAchievementPercentagesForAppTests.cs" />
+    <Compile Include="SteamUser\GetFriendsListTests.cs" />
     <Compile Include="SteamUser\GetPlayerSummariesTests.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

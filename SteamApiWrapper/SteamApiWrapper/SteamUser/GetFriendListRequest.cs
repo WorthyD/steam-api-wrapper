@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SteamApiWrapper.Helpers;
+using System.Threading.Tasks;
 
 namespace SteamApiWrapper.SteamUser
 {
@@ -45,6 +46,22 @@ namespace SteamApiWrapper.SteamUser
             {
                 return "GetFriendList";
             }
+        }
+        public GetFriendListRequest(string apiKey)
+        {
+            this.ApiKey = apiKey;
+        }
+
+        public async Task<GetFriendListResponse> GetResponse()
+        {
+
+            var response = new GetFriendListResponse();
+            response = await base.ExecuteRequest(response as Response, this) as GetFriendListResponse;
+
+
+            return response;
+
+
         }
     }
 }
