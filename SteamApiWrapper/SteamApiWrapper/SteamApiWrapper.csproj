@@ -42,6 +42,7 @@
     <Compile Include="Helpers\SteamUrlBuilder.cs" />
     <Compile Include="Models\FriendsList.cs" />
     <Compile Include="Models\GlobalAchievementPercentages.cs" />
+    <Compile Include="Models\PlayerAchievements.cs" />
     <Compile Include="Models\PlayerSummaries.cs" />
     <Compile Include="ResponseStatus.cs" />
     <Compile Include="SteamNews\GetNewsForAppRequest.cs" />
@@ -58,6 +59,8 @@
     <Compile Include="SteamUserStats\GetGlobalAchievementPercentagesForAppResponse.cs" />
     <Compile Include="SteamUserStats\GetGlobalStatsForGameRequest.cs" />
     <Compile Include="SteamUserStats\GetGlobalStatsForGameResponse.cs" />
+    <Compile Include="SteamUserStats\GetPlayerAchievementsRequest.cs" />
+    <Compile Include="SteamUserStats\GetPlayerAchievementsResponse.cs" />
     <Compile Include="SteamUser\GetFriendListRequest.cs" />
     <Compile Include="SteamUser\GetFriendListResponse.cs" />
     <Compile Include="SteamUser\GetPlayerSummariesRequest.cs" />
