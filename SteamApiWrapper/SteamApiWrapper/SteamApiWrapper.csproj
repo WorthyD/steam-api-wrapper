@@ -37,6 +37,7 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="ReadMe.md" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\SteamUrlBuilder.cs" />
@@ -44,6 +45,7 @@
     <Compile Include="Models\GlobalAchievementPercentages.cs" />
     <Compile Include="Models\PlayerAchievements.cs" />
     <Compile Include="Models\PlayerSummaries.cs" />
+    <Compile Include="Models\StatsForGame.cs" />
     <Compile Include="ResponseStatus.cs" />
     <Compile Include="SteamNews\GetNewsForAppRequest.cs" />
     <Compile Include="SteamNews\GetNewsForAppResponse.cs" />
@@ -61,6 +63,8 @@
     <Compile Include="SteamUserStats\GetGlobalStatsForGameResponse.cs" />
     <Compile Include="SteamUserStats\GetPlayerAchievementsRequest.cs" />
     <Compile Include="SteamUserStats\GetPlayerAchievementsResponse.cs" />
+    <Compile Include="SteamUserStats\GetUserStatsForGameRequest.cs" />
+    <Compile Include="SteamUserStats\GetUserStatsForGameResponse.cs" />
     <Compile Include="SteamUser\GetFriendListRequest.cs" />
     <Compile Include="SteamUser\GetFriendListResponse.cs" />
     <Compile Include="SteamUser\GetPlayerSummariesRequest.cs" />
