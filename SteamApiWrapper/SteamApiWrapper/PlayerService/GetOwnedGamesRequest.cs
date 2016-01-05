@@ -5,21 +5,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SteamApiWrapper.SteamUserStats
+namespace SteamApiWrapper.PlayerService
 {
-
     [APIKeyRequired]
-    public class GetUserStatsForGameRequest : Request
+    public class GetOwnedGamesRequest: Request
     {
+
         [QueryParameter]
         public long SteamId { get; set; }
 
-        [QueryParameter]
-        public int appid { get; set; }
-
 
         [QueryParameter]
-        public string l { get; set; }
+        public string include_appinfo { get; set; }
+
+        [QueryParameter]
+        public string include_played_free_games { get; set; }
 
 
 
@@ -27,7 +27,7 @@ namespace SteamApiWrapper.SteamUserStats
         {
             get
             {
-                return SteamUrlBuilder.Version.v2;
+                return SteamUrlBuilder.Version.v1;
             }
         }
 
@@ -35,7 +35,7 @@ namespace SteamApiWrapper.SteamUserStats
         {
             get
             {
-                return SteamUrlBuilder.Interface.ISteamUserStats;
+                return SteamUrlBuilder.Interface.IPlayerService;
             }
         }
 
@@ -43,21 +43,20 @@ namespace SteamApiWrapper.SteamUserStats
         {
             get
             {
-                return "GetUserStatsForGame";
+                return "GetOwnedGames";
             }
         }
-        public GetUserStatsForGameRequest(string apiKey)
+
+        public GetOwnedGamesRequest(string apiKey)
         {
             this.ApiKey = apiKey;
-            this.l = "en";
         }
 
-
-        public async Task<GetUserStatsForGameResponse> GetResponse()
+        public async Task<GetOwnedGamesResponse> GetResponse()
         {
 
-            var response = new GetUserStatsForGameResponse();
-            response = await base.ExecuteRequest(response as Response, this) as GetUserStatsForGameResponse;
+            var response = new GetOwnedGamesResponse();
+            response = await base.ExecuteRequest(response as Response, this) as GetOwnedGamesResponse;
 
             return response;
 

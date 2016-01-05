@@ -9,6 +9,8 @@ namespace SteamApiWrapper.Tests
 {
     public class BaseTest
     {
+        public long AppID_TeamFortressTwo = 440;
+
         public string APIKey { get { return ConfigurationManager.AppSettings["APIKey"]; } }
     }
 }

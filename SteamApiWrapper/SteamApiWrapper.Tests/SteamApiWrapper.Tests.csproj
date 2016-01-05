@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="BaseTest.cs" />
     <Compile Include="Helpers\SteamUrlBuilder.cs" />
+    <Compile Include="PlayerService\GetOwnedGamesTests.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -75,7 +76,9 @@
       <Name>SteamApiWrapper</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="UserIds.txt" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">
