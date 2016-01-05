@@ -15,12 +15,21 @@ namespace SteamApiWrapper.Tests.SteamUserStats
             req = new SteamApiWrapper.SteamUserStats.GetPlayerAchievementsRequest(base.APIKey);
             req.SteamId = 76561198025095151;
         }
+
         [TestMethod]
         public async Task GetAchievementTest()
         {
             req.appid = 284850;
             var response = await req.GetResponse();
             Assert.IsTrue(response.Status == ResponseStatus.ResponseStatusCode.OK);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public async Task GetAchievementFailNoAppIdTest()
+        {
+
+            var response = await req.GetResponse();
         }
     }
 }

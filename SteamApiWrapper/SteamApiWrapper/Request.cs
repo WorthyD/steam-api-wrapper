@@ -5,6 +5,9 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
+
+
 
 namespace SteamApiWrapper
 {
@@ -38,6 +41,12 @@ namespace SteamApiWrapper
 
         public async Task<SteamApiWrapper.Response> ExecuteRequest(SteamApiWrapper.Response responseObject, object parameters)
         {
+            if (!IsValidRequest()){
+            //    //Throw Exception
+                throw new Exception("Invalid Request");
+            }
+
+
             string requestBaseUrl = urlBuilder.BuildRequestUrl(this.UrlInterface, this.ApiVersion, this.UrlPath);
             string fullRequestUrl = string.Format("{0}?{1}", requestBaseUrl, GetQueryString());
 
@@ -56,17 +65,30 @@ namespace SteamApiWrapper
 
             return responseObject;
         }
-        public string GetQueryString()
+
+        public bool IsValidRequest()
         {
             var properties = (from p in this.GetType().GetProperties()
-                             where p.GetValue(this, null) != null && Attribute.IsDefined(p, typeof(QueryParameter))
-                             select p.Name + "=" + p.GetValue(this, null).ToString()).ToList();
+                              where p.GetValue(this, null) == null && Attribute.IsDefined(p, typeof(Required))
+                              select p.Name).ToList();
+
+            return (properties.Count == 0);
+        }
 
 
-            if (Attribute.IsDefined(this.GetType(), typeof(APIKeyRequired))){
+        public string GetQueryString()
+        {
+
+            var properties = (from p in this.GetType().GetProperties()
+                              where p.GetValue(this, null) != null && Attribute.IsDefined(p, typeof(QueryParameter))
+                              select p.Name + "=" + p.GetValue(this, null).ToString()).ToList();
+
+
+            if (Attribute.IsDefined(this.GetType(), typeof(APIKeyRequired)))
+            {
                 properties.Add("key=" + this.ApiKey);
             }
-          
+
 
             var p2 = this.GetType().GetProperties();
             return String.Join("&", properties.ToArray());
@@ -95,6 +117,10 @@ namespace SteamApiWrapper
     public class QueryParameter : System.Attribute
     {
     }
+    public class Required : System.Attribute
+    {
+    }
+
     public class APIKeyRequired : System.Attribute
     {
     }

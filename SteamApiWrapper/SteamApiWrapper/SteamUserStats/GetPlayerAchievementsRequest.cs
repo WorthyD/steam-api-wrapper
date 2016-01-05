@@ -10,9 +10,11 @@ namespace SteamApiWrapper.SteamUserStats
     [APIKeyRequired]
     public class GetPlayerAchievementsRequest : Request
     {
+        [Required]
         [QueryParameter]
         public long SteamId { get; set; }
 
+        [Required]
         [QueryParameter]
         public int appid { get; set; }
 
