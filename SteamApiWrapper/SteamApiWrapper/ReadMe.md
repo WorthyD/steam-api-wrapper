@@ -12,7 +12,7 @@
 
 ~~3.8 GetUserStatsForGame (v0002)~~
 
-3.9 GetOwnedGames (v0001)
+~~3.9 GetOwnedGames (v0001)~~
 
 3.10 GetRecentlyPlayedGames (v0001)
 

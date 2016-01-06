@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="BaseTest.cs" />
     <Compile Include="Helpers\SteamUrlBuilder.cs" />
+    <Compile Include="PlayerService\GetRecentlyPlayedGamesTest.cs" />
     <Compile Include="PlayerService\GetOwnedGamesTests.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

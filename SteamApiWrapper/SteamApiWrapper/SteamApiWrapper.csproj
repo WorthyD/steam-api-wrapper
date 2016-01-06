@@ -46,9 +46,12 @@
     <Compile Include="Models\OwnedGames.cs" />
     <Compile Include="Models\PlayerAchievements.cs" />
     <Compile Include="Models\PlayerSummaries.cs" />
+    <Compile Include="Models\RecentlyPlayedGames.cs" />
     <Compile Include="Models\StatsForGame.cs" />
     <Compile Include="PlayerService\GetOwnedGamesRequest.cs" />
     <Compile Include="PlayerService\GetOwnedGamesResponse.cs" />
+    <Compile Include="PlayerService\GetRecentlyPlayedGamesRequest.cs" />
+    <Compile Include="PlayerService\GetRecentlyPlayedGamesResponse.cs" />
     <Compile Include="ResponseStatus.cs" />
     <Compile Include="SteamNews\GetNewsForAppRequest.cs" />
     <Compile Include="SteamNews\GetNewsForAppResponse.cs" />
