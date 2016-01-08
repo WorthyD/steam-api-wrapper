@@ -47,6 +47,7 @@
     <Compile Include="Models\PlayerAchievements.cs" />
     <Compile Include="Models\PlayerSummaries.cs" />
     <Compile Include="Models\RecentlyPlayedGames.cs" />
+    <Compile Include="Models\SchemaForGame.cs" />
     <Compile Include="Models\StatsForGame.cs" />
     <Compile Include="PlayerService\GetOwnedGamesRequest.cs" />
     <Compile Include="PlayerService\GetOwnedGamesResponse.cs" />
@@ -69,6 +70,8 @@
     <Compile Include="SteamUserStats\GetGlobalStatsForGameResponse.cs" />
     <Compile Include="SteamUserStats\GetPlayerAchievementsRequest.cs" />
     <Compile Include="SteamUserStats\GetPlayerAchievementsResponse.cs" />
+    <Compile Include="SteamUserStats\GetSchemaForGameRequest.cs" />
+    <Compile Include="SteamUserStats\GetSchemaForGameResponse.cs" />
     <Compile Include="SteamUserStats\GetUserStatsForGameRequest.cs" />
     <Compile Include="SteamUserStats\GetUserStatsForGameResponse.cs" />
     <Compile Include="SteamUser\GetFriendListRequest.cs" />
