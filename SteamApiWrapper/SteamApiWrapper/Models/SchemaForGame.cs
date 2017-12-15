@@ -26,7 +26,7 @@ namespace SteamApiWrapper.Models
         public class Achievement
         {
             public string name { get; set; }
-            public int defaultvalue { get; set; }
+            public long defaultvalue { get; set; }
             public string displayName { get; set; }
             public int hidden { get; set; }
             public string description { get; set; }
@@ -37,7 +37,7 @@ namespace SteamApiWrapper.Models
         public class Stat
         {
             public string name { get; set; }
-            public int defaultvalue { get; set; }
+            public long defaultvalue { get; set; }
             public string displayName { get; set; }
         }
 

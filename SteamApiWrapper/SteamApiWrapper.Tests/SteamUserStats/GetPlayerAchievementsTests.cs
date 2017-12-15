@@ -19,7 +19,8 @@ namespace SteamApiWrapper.Tests.SteamUserStats
         [TestMethod]
         public async Task GetAchievementTest()
         {
-            req.appid = 284850;
+            //req.appid = 284850;
+            req.appid = 240;
             var response = await req.GetResponse();
             Assert.IsTrue(response.Status == ResponseStatus.ResponseStatusCode.OK);
         }

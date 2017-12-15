@@ -17,7 +17,8 @@ namespace SteamApiWrapper.Tests.SteamUserStats
         [TestMethod]
         public async Task GetSchemaForGameTest()
         {
-            req.appid = 440;
+            //req.appid = 440;
+            req.appid = 240;
             var response = await req.GetResponse();
             Assert.IsTrue(response.Status == ResponseStatus.ResponseStatusCode.OK);
         }
